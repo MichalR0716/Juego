@@ -156,76 +156,99 @@ body {
 
 
 /* 5. Footer (Combinando información de Página 1 y 3 del PDF) */
+/* Pie de página en disposición horizontal y responsiva */
 .footer-v2 {
-    background-color: var(--color-primary-dark);
-    color: var(--color-secondary-light);
-    padding: 40px 0 10px 0;
+  padding: 28px 20px;
+  background: #0f1724;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
-.footer-cta {
-    text-align: center;
-    padding: 20px 40px 40px 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* CTA principal a la izquierda (o arriba en móvil) */
+.footer-v2 .footer-cta {
+  flex: 1 1 260px;
+  min-width: 220px;
+  margin: 0;
 }
 
-.footer-cta h2 {
-    color: var(--color-secondary-light);
-    margin-bottom: 20px;
-}
-
-.download-btn {
-    font-size: 1.5em;
-    padding: 15px 30px;
-    border-color: var(--color-text-pixel); /* Diferente color para destacar */
-    box-shadow: 4px 4px 0 var(--color-secondary-light);
-    background-color: #000; /* Fondo negro para contraste si se quiere */
-}
-
-.download-btn:hover {
-    background-color: #333;
-}
-
-.footer-links-v2 {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Columnas de enlaces en línea */
+.footer-v2 .footer-links-v2 {
+  display: flex;
+  gap: 24px;
+  flex: 2 1 420px;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-width: 300px;
   box-sizing: border-box;
 }
 
 .footer-col-v2 {
-    max-width: 300px;
+  flex: 1 1 160px;
+  min-width: 140px;
+}
+
+.footer-col-v2 h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
 }
 
 .footer-col-v2 ul {
-    list-style: none;
-    font-size: 0.9em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.footer-col-v2 ul li {
-    margin-bottom: 5px;
+/* Newsletter: formulario en linea */
+.footer-v2 .newsletter form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.footer-col-v2.newsletter input[type="email"] {
-    padding: 8px;
-    border: none;
-    margin-right: 10px;
-    font-size: 1em;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: var(--color-text-dark);
+.footer-v2 .newsletter input[type="email"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  flex: 1;
+  min-width: 140px;
 }
 
-.footer-col-v2.newsletter button {
-    padding: 8px 15px;
-    box-shadow: none;
-    border: 2px solid var(--color-text-pixel);
+.footer-v2 .newsletter .btn-primary-v2 {
+  padding: 10px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 
+/* Copyright: en móvil ocupa toda la fila, en escritorio a la derecha */
 .copyright-v2 {
-    text-align: center;
-    padding: 10px 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.75em;
-    color: var(--color-secondary-light);
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+/* En pantallas grandes, coloca el copyright a la derecha dentro del mismo contenedor */
+@media (min-width: 900px) {
+  .footer-v2 {
+    padding: 32px 40px;
+  }
+  .copyright-v2 {
+    width: auto;
+    margin-top: 0;
+    text-align: right;
+    align-self: center;
+  }
 }
 
 /* Sección Personajes */
