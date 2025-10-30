@@ -1,128 +1,203 @@
-/* Reset */
+/* Variables de Colores Retro de la primera landing */
+:root {
+    --color-primary-dark: #8b0000; /* Rojo Oscuro/Borgoña */
+    --color-secondary-light: #fce899; /* Amarillo/Beige claro */
+    --color-text-pixel: #d89e00; /* Color de texto/resalte pixelado */
+    --color-text-dark: #444; /* Texto de cuerpo (usado aquí para el texto del hero) */
+}
+
+/* 1. Estilos Globales y Tipografía */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-secondary-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
 }
 
-/* Navbar centrada */
-.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* centra horizontalmente el contenido del navbar */
-  align-items: center;
-  padding: 12px 20px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-  gap: 16px;
+/* Estilo pixel art para títulos y logo */
+.pixel-text {
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--color-text-pixel);
 }
 
-/* Ajustes de logo y enlaces */
-.navbar .logo {
-  margin-right: 12px;
+h1 {
+    font-size: 3.5em;
+    color: var(--color-text-pixel);
+    margin-bottom: 10px;
 }
 
-.navbar .logo img {
-  height: 40px;
-  display: block;
+h2 {
+    font-size: 2em;
 }
 
-/* Enlaces */
-.nav-links {
-  display: flex;
-  gap: 18px;
-  align-items: center;
+h3 {
+    font-size: 1.2em;
+    color: var(--color-secondary-light);
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #222;
-  font-weight: 600;
-  padding: 6px 8px;
+/* 2. Navegación (Header) - Basado en la estructura del PDF */
+.navbar-v2 {
+    background-color: var(--color-primary-dark); /* Color de fondo del primer diseño */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 40px;
 }
 
-/* Botón especial */
-.btn-jugar {
-  background-color: #00b4d8;
-  color: #1e1e1e;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease;
+.logo-v2 {
+    color: var(--color-secondary-light);
+    font-size: 1.5em;
+    margin-right: auto;
 }
 
-.btn-jugar:hover {
-  background-color: #00e0ff;
-  transform: scale(1.05);
+.navbar-v2 nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-right: 50px;
 }
 
-/* asegúrate de tener esto para scroll suave */
-html { scroll-behavior: smooth; }
-
-/* SECCIÓN INICIO */
-.inicio {
-  width: 100%;
-  min-height: calc(100vh - 70px); /* ocupa toda la pantalla menos el navbar */
-  display: flex;
-  flex-direction: column; /* apila verticalmente */
-  align-items: center;    /* centra horizontal */
-  justify-content: center; /* centra vertical */
-  text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(180deg, #0f1724 0%, #111827 60%);
-  color: #fff;
+.navbar-v2 nav ul li a {
+    color: var(--color-secondary-light);
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
 }
 
-
-/* Contenido (texto + CTA) */
-.inicio-contenido {
-  max-width: 650px;
+.navbar-v2 nav ul li a:hover {
+    color: var(--color-text-pixel);
 }
 
-.inicio h1 {
-  font-size: 3rem; /* ajusta según gusto */
-  margin-bottom: 16px;
-  line-height: 1.05;
-}
-
-.inicio .lead {
-  font-size: 1.125rem;
-  margin-bottom: 22px;
-  color: #d1d5db;
-}
-
-/* Botones (reusa o adapta .btn-jugar) */
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 24px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-right: 12px;
-}
-
-.btn-primary {
-  background-color: #00b4d8;
-  color: #0b0b0b;
-  transition: transform 0.18s ease, background-color 0.18s ease;
-}
-.btn-primary:hover { transform: translateY(-3px); background-color: #00e0ff; }
-
-/* RESPONSIVE: en pantallas pequeñas apilar verticalmente */
-@media (max-width: 900px) {
-  .inicio {
-    flex-direction: column;
+/* 3. Botones Reutilizables (Adaptados al diseño retro) */
+.btn-primary-v2 {
+    background-color: var(--color-primary-dark);
+    color: var(--color-secondary-light);
+    border: 3px solid var(--color-secondary-light);
+    text-decoration: none;
+    cursor: pointer;
     text-align: center;
-    padding: 28px 24px;
-    min-height: auto;
-  }
-  .inicio-imagen { order: 2; margin-top: 20px; }
-  .inicio-contenido { order: 1; }
-  .inicio h1 { font-size: 2.2rem; }
+    transition: background-color 0.3s;
+    letter-spacing: 2px;
+    padding: 8px 15px;
+    font-weight: bold;
+    box-shadow: 3px 3px 0 var(--color-text-pixel); /* Sombra pixelada */
+}
+
+.btn-primary-v2:hover {
+    background-color: #a00000;
+}
+
+.large-btn-v2 {
+    font-size: 1.2em;
+    padding: 12px 25px;
+    margin-top: 20px;
+}
+
+/* 4. Sección Principal (Hero) */
+.hero-section-v2 {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Para simular la imagen de fondo del PDF, usaremos solo el color */
+    background-color: var(--color-secondary-light);
+    padding: 50px 0;
+}
+
+.hero-text-box {
+    text-align: center;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.hero-text-box p {
+    color: var(--color-text-dark);
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+
+/* 5. Footer (Combinando información de Página 1 y 3 del PDF) */
+.footer-v2 {
+    background-color: var(--color-primary-dark);
+    color: var(--color-secondary-light);
+    padding: 40px 0 10px 0;
+}
+
+.footer-cta {
+    text-align: center;
+    padding: 20px 40px 40px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-cta h2 {
+    color: var(--color-secondary-light);
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border-color: var(--color-text-pixel); /* Diferente color para destacar */
+    box-shadow: 4px 4px 0 var(--color-secondary-light);
+    background-color: #000; /* Fondo negro para contraste si se quiere */
+}
+
+.download-btn:hover {
+    background-color: #333;
+}
+
+.footer-links-v2 {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.footer-col-v2 {
+    max-width: 300px;
+}
+
+.footer-col-v2 ul {
+    list-style: none;
+    font-size: 0.9em;
+}
+
+.footer-col-v2 ul li {
+    margin-bottom: 5px;
+}
+
+.footer-col-v2.newsletter input[type="email"] {
+    padding: 8px;
+    border: none;
+    margin-right: 10px;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text-dark);
+}
+
+.footer-col-v2.newsletter button {
+    padding: 8px 15px;
+    box-shadow: none;
+    border: 2px solid var(--color-text-pixel);
+}
+
+.copyright-v2 {
+    text-align: center;
+    padding: 10px 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75em;
+    color: var(--color-secondary-light);
 }

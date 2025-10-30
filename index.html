@@ -1,35 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navbar con Botón</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta de Leyendas - Explora el Valle</title>
+    <link rel="stylesheet" href="styles_v2.css">
+    </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="logo.png" alt="Logo">
-    </div>
-    <div class="nav-links">
-      <a href="#">HOME</a>
-      <a href="#">Historia</a>
-      <a href="#">Personajes</a>
-      <a href="#">Taam</a>
-      <a href="#">Comunidad</a>
-      <a href="#" class="btn-jugar">Jugar ahora</a>
-    </div>
-  </nav>
-  <!-- SECCIÓN INICIO -->
-<section id="inicio" class="inicio">
-  <div class="inicio-contenido">
-    <h1>Bienvenido a Taam</h1>
-    <p class="lead">Explora la historia, conoce a los personajes y únete a la comunidad.</p>
-    <div class="inicio-ctas">
-      <a href="#jugar" class="btn btn-primary">Jugar ahora</a>
-    </div>
-  </div>
-</section>
+
+    <header class="navbar-v2">
+        <div class="logo-v2 pixel-text">EXPLORE</div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Elementos</a></li>
+                <li><a href="#">Personajes</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="btn-primary-v2">JUGAR AHORA</button>
+    </header>
+
+    <main class="hero-section-v2">
+        <div class="hero-text-box">
+            <h1 class="pixel-text">RUTA DE LEYENDAS</h1>
+            <p>Aquí, encarnas a un joven viajero que debe recorrer tres territorios mágicos inspirados en Valledupar y sus alrededores.</p>
+            <p>Explora el Valle, enfrenta desafios y descubre el canto oculto.</p>
+            <button class="btn-primary-v2 large-btn-v2">JUGAR AHORA</button>
+        </div>
+    </main>
+
+    <footer class="footer-v2">
+        <div class="footer-cta">
+            <h2 class="pixel-text">Ahora si, estás listo para esta aventura?</h2>
+            <button class="btn-primary-v2 download-btn">DESCARGAR</button>
+        </div>
+        
+        <div class="footer-links-v2">
+            <div class="footer-col-v2">
+                <h3>Empresa</h3>
+                <ul>
+                    <li>About us</li>
+                    <li>Service</li>
+                    <li>Resources</li>
+                </ul>
+            </div>
+            
+            <div class="footer-col-v2">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li>The purpose of a FAQ is generally to provide information on frequent questions or concerns.</li>
+                    <li>Customer Support</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            
+            <div class="footer-col-v2 newsletter">
+                <h3>Suscribete para más actualizaciones</h3>
+                <form>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit" class="btn-primary-v2">Enviar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright-v2">
+            <p>Copyright 2024, All Rights Reserved by Transparent</p>
+        </div>
+    </footer>
 
 </body>
 </html>
