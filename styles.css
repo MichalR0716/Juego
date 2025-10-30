@@ -326,7 +326,43 @@ body {
   cursor: pointer;
 }
 
-/* Adaptaciones responsivas */
+/* Elementos y Team (reusa card-v2 y cards-grid) */
+.elementos-section,
+.team-section {
+  padding: 56px 16px;
+  background: transparent;
+}
+
+.elementos-section .section-title,
+.team-section .section-title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Para team queremos grid de 3 columnas en desktop y responsive */
+.team-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+/* Pequeños ajustes visuales para distinguir secciones */
+.elementos-section .card-v2 {
+  background: linear-gradient(180deg,#ffffff,#fbfbfd);
+}
+
+.team-section .card-v2 {
+  background: #fff;
+}
+
+/* Hover ya definido en .card-v2:hover; asegúrate que exista */
+/* Si quieres espaciado adicional entre secciones */
+.personajes-section,
+.elementos-section,
+.team-section {
+  margin-bottom: 28px;
+}
+
+/* Ajustes responsivos */
 @media (max-width: 520px) {
   .card-v2 img { height: 140px; }
   .section-title { font-size: 1.5rem; }
@@ -347,4 +383,13 @@ body {
   }
 
   body { padding-top: 84px; }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .elementos-section .cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
