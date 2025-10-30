@@ -4,46 +4,103 @@
     --color-secondary-light: #fce899; /* Amarillo/Beige claro */
     --color-text-pixel: #d89e00; /* Color de texto/resalte pixelado */
     --color-text-dark: #444; /* Texto de cuerpo (usado aquí para el texto del hero) */
+
+    /* New spacing variables */
+    --page-gutter: 18px;
+    --section-vertical-pad: 64px;
+    --section-vertical-pad-sm: 36px;
+    --max-content-width: 1100px;
 }
 
-/* 1. Estilos Globales y Tipografía */
-* {
-    margin: 0;
-    padding: 0;
+/* Reset limpio y box-sizing consistente */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+/* Página: padding exterior y ajuste tipográfico */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 10px; /* padding global pedido anteriormente */
+}
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--color-secondary-light);
     color: var(--color-text-dark);
-    line-height: 1.6;
+    line-height: 1.45;
+    -webkit-text-size-adjust: 100%;
 }
 
-/* Estilo pixel art para títulos y logo */
-.pixel-text {
-    font-family: 'Courier New', Courier, monospace;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: var(--color-text-pixel);
+/* Contenedor centrado y con gutter lateral práctico */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
 }
 
+/* Espaciado vertical coherente por sección */
+section {
+    padding-top: var(--section-vertical-pad);
+    padding-bottom: var(--section-vertical-pad);
+}
+
+/* Ajustes responsivos para gutters y paddings */
+@media (max-width: 900px) {
+    :root {
+        --section-vertical-pad: 48px;
+        --page-gutter: 14px;
+    }
+}
+@media (max-width: 520px) {
+    :root {
+        --section-vertical-pad: 28px;
+        --page-gutter: 12px;
+    }
+}
+
+/* Headings: tamaños responsivos y espaciamiento estético */
 h1 {
-    font-size: 3.5em;
-    color: var(--color-text-pixel);
-    margin-bottom: 10px;
+    font-size: clamp(2rem, 4.8vw, 3.5rem);
+    line-height: 1.02;
+    margin: 0 0 0.6rem 0;
+    color:#f0b84a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: clamp(1.2rem, 2.4vw, 2rem);
+    margin: 0 0 0.75rem 0;
+    letter-spacing: 1px;
 }
 
 h3 {
-    font-size: 1.2em;
-    color: var(--color-secondary-light);
-    margin-bottom: 15px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin: 0 0 0.6rem 0;
+    color: var(--color-primary-dark);
+}
+
+/* Variante pixel manteniendo espaciado coherente */
+.pixel-text {
+    font-family: 'Courier New', Courier, monospace;
     text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-text-pixel);
+    display: inline-block;
+}
+
+/* Ajuste del héroe para que respete el nuevo padding */
+.hero-text-box {
+    padding: calc(var(--section-vertical-pad) / 2) 0;
+    text-align: center;
 }
 
 /* 2. Navegación (Header) - Basado en la estructura del PDF */
@@ -99,8 +156,101 @@ h3 {
 
 /* Evita que el contenido de la página quede tapado por la navbar fija */
 body {
-  padding-top: 100px;
+  padding-top: 28px;
   box-sizing: border-box;
+}
+
+/* Top small title pill */
+.site-topbar {
+  display: flex;
+  justify-content: center;
+  margin: 6px auto 8px;
+  pointer-events: none;
+}
+.site-title-pill {
+  background: linear-gradient(180deg,#ffd77a,#f0b84a);
+  color: var(--color-primary-dark);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  pointer-events: auto;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.06);
+}
+
+/* Maroon rounded nav pill */
+.nav-bar-pill {
+  background: linear-gradient(180deg, #7d0000, #8b0000);
+  max-width: 980px;
+  margin: 0 auto 14px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  box-shadow: 0 12px 30px rgba(10,10,10,0.12);
+  overflow: hidden;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+/* Logo left */
+.nav-inner .logo-v2 {
+  color: var(--color-secondary-light);
+  font-size: 0.95rem;
+  padding-left: 6px;
+}
+
+/* Center nav links */
+.nav-inner nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+.nav-inner nav ul {
+  display: flex;
+  gap: 14px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-inner nav a {
+  color: rgba(255,230,195,0.95);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .18s, color .18s;
+}
+.nav-inner nav a:hover {
+  background: rgba(255,230,195,0.12);
+  color: var(--color-secondary-light);
+}
+
+/* CTA on the right with yellow pill style */
+.pill-cta {
+  background: var(--color-secondary-light);
+  color: var(--color-primary-dark);
+  border: 2px solid rgba(0,0,0,0.06);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  box-shadow: 3px 3px 0 var(--color-text-pixel);
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .nav-inner nav { display: none; } /* simplificar en móvil */
+  .nav-inner { gap: 10px; }
+  .nav-bar-pill { padding: 8px; }
+}
+@media (max-width: 520px) {
+  .site-title-pill { font-size: 0.85rem; padding: 5px 12px; }
+  .pill-cta { padding: 6px 10px; font-size: 0.85rem; }
 }
 
 /* 3. Botones Reutilizables (Adaptados al diseño retro) */
@@ -129,16 +279,13 @@ body {
 }
 
 /* 4. Sección Principal (Hero) */
+/* Secciones con colores diferentes y animación de fondo (cuadritos + partículas) */
 .hero-section-v2 {
-    min-height: 320px; /* antes: mayor; reduce altura del hero */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    /* Para simular la imagen de fondo del PDF, usaremos solo el color */
-    background-color: var(--color-secondary-light);
-    padding: 32px 0;
-    box-sizing: border-box;
+  --bg: ;
+  --sq-color: rgba(0,0,0,0.04);
+  background-color: var(--bg);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-text-box {
@@ -167,6 +314,9 @@ body {
   gap: 24px;
   flex-wrap: wrap;
   box-sizing: border-box;
+  --sq-color: rgba(255,255,255,0.02);
+  position: relative;
+  overflow: hidden;
 }
 
 /* CTA principal a la izquierda (o arriba en móvil) */
@@ -253,8 +403,10 @@ body {
 
 /* Sección Personajes */
 .personajes-section {
-  padding: 36px 16px; /* antes: 56px/64px */
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  --bg: #f0b84a;
+  --sq-color: rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
 }
 
 .personajes-section .container {
@@ -334,8 +486,22 @@ body {
 
 /* Para team queremos grid de 3 columnas en desktop y responsive */
 .team-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas y 3 en la siguiente fila para 6 items */
   gap: 18px;
+  align-items: stretch;
+}
+
+/* Responsivo: 2 columnas en tablet, 1 columna en móvil */
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Pequeños ajustes visuales para distinguir secciones */
@@ -353,6 +519,33 @@ body {
 .elementos-section,
 .team-section {
   margin-bottom: 20px; /* antes: 28px */
+}
+
+/* Animaciones */
+@keyframes moveSquares {
+  from { background-position: 0 0, 12px 12px; }
+  to   { background-position: 240px 240px, 252px 252px; }
+}
+@keyframes floatDots {
+  from { background-position: 0 0; }
+  to   { background-position: -400px -200px; }
+}
+
+/* Reducir movimiento para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section-v2::before,
+  .personajes-section::before,
+  .elementos-section::before,
+  .team-section::before,
+  .footer-v2::before,
+  .hero-section-v2::after,
+  .personajes-section::after,
+  .elementos-section::after,
+  .team-section::after,
+  .footer-v2::after {
+    animation: none;
+    opacity: 0.25;
+  }
 }
 
 /* Ajustes responsivos */
